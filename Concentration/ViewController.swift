@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]!
     
-    var emojiChoices = ["🎃","123","🎃","👻"]
+    var emojiChoices = ["🎃","👻","🎃","👻"]
     
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
