@@ -20,6 +20,6 @@ struct Card {
     }
     
     init() {
-        self.identifire = 0
+        self.identifire = Card.getUniqueIdentifire()
     }
 }
