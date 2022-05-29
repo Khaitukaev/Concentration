@@ -9,7 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        cardButtons.shuffle()
+    }
     lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
     var flipCount = 0 {
         didSet {
@@ -31,6 +34,7 @@ class ViewController: UIViewController {
         }
         
         func updateViewFromModel() {
+           
             for index in cardButtons.indices {
                 let button = cardButtons[index]
                 let card = game.cards[index]
@@ -49,11 +53,13 @@ class ViewController: UIViewController {
     var emoji = [Int:String]()
     
     func emoji(for card: Card) -> String {
+        
         if emoji[card.identifire] == nil, emojiChoices.count > 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
             emoji[card.identifire] = emojiChoices.remove(at: randomIndex)
         }
         return emoji[card.identifire] ?? "?"
+        
     }
 }
 
